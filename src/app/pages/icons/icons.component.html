@@ -1,0 +1,94 @@
+<div class="header bg-gradient-custom-danger pb-8 pt-5 pt-md-8" >
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Registrar Ponto</h5>
+                  <span class="h2 font-weight-bold mb-0">{{clock}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-gradient-custom-danger rounded-circle shadow">
+                    <i  (click)="beatSchedules(id)"  class="fas fa-bell fa" style="cursor: pointer;" ></i>
+                    
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Controle de Ponto</h3>
+            </div>
+            <div class="col text-right">
+              <a href="#/seeall" class="btn btn-sm btn-primary-custom"  >Ver todos</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Data </th>
+                <th scope="col">Entrada</th>
+                <th scope="col">Almoço</th>
+                <th scope="col">Retorno</th>
+                <th scope="col">Saida</th>
+                <th scope="col">Total trabalhado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                 {{dateToday | date:'dd/M/YY'}}
+                </th>
+                <td>
+                  {{schedules.entryDate | date: 'HH:mm:ss'}}
+                </td>
+                <td>
+                  {{schedules.lunchTimeDate | date: 'HH:mm:ss'}}
+                </td>
+                <td>
+                  {{schedules.returnLunchTimeDate | date: 'HH:mm:ss'}}
+                </td>
+                <td>
+                  {{schedules.departureTimeDate | date: 'HH:mm:ss'}}
+                </td>
+
+                <td>
+                  <i class="fas fa-arrow-down text-danger mr-3" *ngIf="schedules.workedHours < 8" ></i> 
+                  <i class="fas fa-arrow-up text-success mr-3" *ngIf="schedules.workedHours > 8" ></i> 
+                  <i *ngIf="schedules.workedHours == 8" ></i> 
+                   {{schedules.workedHours}}
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
