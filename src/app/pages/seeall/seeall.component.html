@@ -80,34 +80,33 @@
                   <th scope="col">Entrada</th>
                   <th scope="col">Almoço</th>
                   <th scope="col">Retorno</th>
-                  <th scope="col">Saida {{dashboardDates[0].entryTime}}</th>
+                  <th scope="col">Saida </th>
                   <th scope="col">Total trabalhado</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let i of dataa">
+                <tr *ngFor="let i of dashboardDates">
                   <th scope="row">
-                    <!-- {{dashboardDates[0].entryTime }} -->
-                    {{i.name}}
+                    {{i.entryTime | date:'dd/M/YY'}}
                   </th>
                   <td>
-                    <!-- {{i.entryTime }} -->
+                    {{i.entryTime | date: 'HH:mm:ss' }} 
                   </td>
                   <td>
-                    <!-- {{i.lunchTime }} -->
+                     {{i.lunchTime | date: 'HH:mm:ss' }} 
                   </td>
                   <td>
-                    <!-- {{i.lunchReturnTime}} -->
+                     {{i.lunchReturnTime | date: 'HH:mm:ss'}} 
                   </td>
                   <td>
-                    <!-- {{i.departureTime}} -->
+                     {{i.departureTime |  date: 'HH:mm:ss'}} 
                   </td>
                 
                   <td>
                     <i class="fas fa-arrow-down text-danger mr-3" *ngIf="i.workedHours < 8" ></i> 
                     <i class="fas fa-arrow-up text-success mr-3" *ngIf="i.workedHours > 8" ></i> 
                     <i *ngIf="i.workedHours == 8" ></i> 
-                    <!-- {{i.workedHours}} -->
+                     {{i.workedHours}} 
                   </td>
                 </tr>                     
                </tbody>
