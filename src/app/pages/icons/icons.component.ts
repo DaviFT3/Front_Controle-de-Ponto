@@ -29,7 +29,7 @@ export class IconsComponent implements OnInit {
     this.id = user.user.id;
     this.dateToday = new Date();
     this.schedules = new Schedules();
-    this.getSchedules(this.id);
+    
   }
 
   getSchedules(id: string): void {

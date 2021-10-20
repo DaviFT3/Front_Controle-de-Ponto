@@ -1,3 +1,4 @@
+import { Company } from "./company";
 export class User {
   username?:string;
   active?: boolean;
@@ -11,4 +12,5 @@ export class User {
   phone?: string;
   vacations?: boolean;
   token?: string;
+  company?: Company;
 }

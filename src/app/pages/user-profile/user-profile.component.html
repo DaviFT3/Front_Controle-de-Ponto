@@ -1,13 +1,13 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/will.jfif); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/profile.png); background-size: contain; background-position: center top;">
   <!-- Mask -->
   <span class="mask bg-gradient-custom-danger opacity-8"></span>
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Olá Willyam Santos</h1>
+        <h1 class="display-2 text-white">Olá {{user.name}}</h1>
         <p class="text-white mt-0 mb-5">Esta é a sua página de perfil</p>
-        <a href="#!" class="btn btn-info">Editar Perfil</a>
+        <!-- <a href="#!" class="btn btn-info">Editar Perfil</a> -->
       </div>
     </div>
   </div>
@@ -30,37 +30,34 @@
             <h6 class="heading-small text-muted mb-4">Informações Usuario</h6>
             <div class="pl-lg-4">
               <div class="row">
+              
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-username">Username</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                    <label class="form-control-label" for="input-first-name"> Nome</label>
+                    <input type="text" id="userName"  name="userName" class="form-control form-control-alternative" placeholder="First name" [(ngModel)]="user.name" [disabled]="true">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                    <label class="form-control-label" for="input-email">Endereço de email</label>
+                    <input type="email" id="userEmail" name="userEmail" class="form-control form-control-alternative" placeholder="jesse@example.com" [(ngModel)]="user.email" [disabled]="true">
                   </div>
                 </div>
+              
+            
               </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-first-name">Primeiro nome</label>
-                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-last-name">Ultimo nome</label>
-                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                    <label class="form-control-label" for="input-first-name"> Telefone</label>
+                    <input type="text" id="userPhone"  name="userPhone" class="form-control form-control-alternative" placeholder="Telefone" [(ngModel)]="user.phone" [disabled]="true">
                   </div>
                 </div>
               </div>
             </div>
             <hr class="my-4" />
             <!-- Address -->
-            <h6 class="heading-small text-muted mb-4">Informaçãos de Contato</h6>
+            <!-- <h6 class="heading-small text-muted mb-4">Informaçãos de Contato</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-md-12">
@@ -90,7 +87,43 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+               <h6 class="heading-small text-muted mb-4">Empresa</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-address">Empresa</label>
+                    <input id="userEmpresa" name="userEmpresa" class="form-control form-control-alternative" placeholder="Home Address" [(ngModel)]="user.company.corporateName" [disabled]="true" >
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-city">Projeto</label>
+                    <input type="text"id="userProjeto" name="userProjeto" class="form-control form-control-alternative" placeholder="City" [(ngModel)]="user.company.project" [disabled]="true">
+                  </div>
+                </div>
+                
+              </div>
+            </div> 
+            <h6 class="heading-small text-muted mb-4">Informaçãos Gerais</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-address">Atribuição</label>
+                    <input id="userAtribui" name="userAtribui" class="form-control form-control-alternative" placeholder="Home Address" [(ngModel)]="user.assignment" [disabled]="true">
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-city">Contratação</label>
+                    <input type="text"id="userHiring" name="userHiring" class="form-control form-control-alternative" placeholder="City" [(ngModel)]="user.hiringType" [disabled]="true">
+                  </div>
+                </div>
+                
+              </div>
+            </div> 
             <hr class="my-4" />
             <!-- Description -->
             <h6 class="heading-small text-muted mb-4">Sobre Mim</h6>

@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { DatePipe } from '@angular/common'
 import { ToastrModule } from 'ngx-toastr';
 import { SeeallComponent } from './pages/seeall/seeall.component';
 
@@ -37,7 +37,7 @@ import { SeeallComponent } from './pages/seeall/seeall.component';
     SeeallComponent
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
