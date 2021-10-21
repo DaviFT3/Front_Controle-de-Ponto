@@ -23,6 +23,9 @@ export class SchedulesService {
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
   }
+  getallMonthYear(id:string, year:number,month:number): Observable<any>{
+    return this.http.get(`${baseUrl}/CollaboratorSchedulesByMonthAndYear?id=${id}&year=${year}&month=${month}`)
+  }
   
   beattime(id: any): Observable<Schedules> {
     const params = new HttpParams()

@@ -21,4 +21,9 @@ export class DayOffService {
       };
       return this.http.post<any>(baseUrl + "/create", body);
     }
+
+    getall(): Observable<DayOff> {
+      return this.http.get(`${baseUrl}/GetAllByUserId`);
+    }
+
 }

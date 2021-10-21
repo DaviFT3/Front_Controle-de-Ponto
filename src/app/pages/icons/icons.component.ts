@@ -29,7 +29,7 @@ export class IconsComponent implements OnInit {
     this.id = user.user.id;
     this.dateToday = new Date();
     this.schedules = new Schedules();
-    
+    this.getSchedules(this.id)
   }
 
   getSchedules(id: string): void {
@@ -47,22 +47,26 @@ export class IconsComponent implements OnInit {
           console.log(error);
         });
   }
+  
   beatSchedules(id: string): void {
-    this.scheduleService.beattime(id)
-      .subscribe(
-        data => {
-          this.schedules = data;
-          this.schedules.entryDate = new Date(this.schedules.entryTime);
-          this.schedules.departureTimeDate = new Date(this.schedules.departureTime);
-          this.schedules.lunchTimeDate = new Date(this.schedules.lunchTime);
-          this.schedules.returnLunchTimeDate = new Date(this.schedules.lunchReturnTime);
-          this.toastr.success('Registro de Ponto', 'Com sucesso');
-          
-          console.log(data);
-        },
-        error => {
-
-          console.log(error);
-        });
+    if (this.schedules.departureTime == '0001-01-01T00:00:00'){
+      this.scheduleService.beattime(id)
+    .subscribe(
+      data => {
+        this.schedules = data;
+        this.schedules.entryDate = new Date(this.schedules.entryTime);
+        this.schedules.departureTimeDate = new Date(this.schedules.departureTime);
+        this.schedules.lunchTimeDate = new Date(this.schedules.lunchTime);
+        this.schedules.returnLunchTimeDate = new Date(this.schedules.lunchReturnTime);
+        this.toastr.success('Registro de Ponto', 'Com sucesso');
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+    }
+    else {
+      this.toastr.error('Não é possivel bater ponto')
+    }
   }
 }

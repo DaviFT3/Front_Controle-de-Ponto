@@ -13,4 +13,5 @@ export class Schedules{
   lunchReturnTime?: string;
   departureTime?: string;
   dashboardDates? : DashboardDates;
+  dayOfTheWeek? : string;
 }
