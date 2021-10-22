@@ -5,3 +5,4 @@
 <img src = "src/assets/img/readme/login.png">
 <h2>Tela de dashboard</h2>
 <img src = "src/assets/img/readme/dashboard.png">
+<h3>Nessa tela o usuário consegue visualizar os horários dos seus 7 últimos dias trabalhados, sua carga horária e seu saldo de horas. </h3>
